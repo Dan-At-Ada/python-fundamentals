@@ -1,31 +1,42 @@
-# Times-table starter: input, a function, and a loop.
+# Times-table starter: complete the missing parts using the tasks at the bottom.
 
 
-def times_table(number):
+def enterNumber():
+    number = int(input("Which times table? Enter a whole number: "))
+    return number
+
+
+def timesTable(number):
     for multiplier in range(1, 11):
-        pass  # Complete the loop body using the tasks below.
+        pass  # Calculate and print one line of the table. This function is only half complete, think about what needs to be done
 
 
-number = int(input("Which times table? Enter a whole number: "))
-times_table(number)
+# Main program starts here.
+print("Welcome to my times-table program")
+number = enterNumber()
+timesTable(number)
 
 
 # TASK STEPS
 # 1. The first loop is provided: multiplier goes from 1 to 10.
-#    Replace pass with code that multiplies number by multiplier.
-# 2. Print each calculation and its answer on one line, as shown below.
-#    Keep this code inside the loop so it runs for every multiplier.
-# 3. Run the program, enter 5, and check all ten lines against the example.
-# 4. Extension: write a second loop so the user can choose another table.
-#    After each table, ask "Another table? (yes/no): ".
-#    If they enter yes, ask for a new number and call times_table again.
-#    If they enter no, end the program. This loop belongs around the input
-#    and function call, outside the function. Write it yourself.
+#    Replace pass with code that multiplies number by multiplier and prints
+#    the calculation and answer on one line. Use the example below as a guide.
+# 2. Write a second loop in the main program so the user can choose another
+#    table. After each table, ask "Another table? (y/n): ".
+#    y should ask for a new number and display that table; n should stop.
+#    Put this loop around the number input and function call, outside the
+#    function. Use the calculator's main loop as a guide.
+# 3. Test with 5 and compare all ten lines with the example below.
+#    Then try y at the repeat question and choose a different table.
+# 4. Extension: add try/except ValueError and a loop inside enterNumber.
+#    If the input is not a whole number, show a message and ask again.
 #
 # AS SUPPLIED
-# The program asks for a number but prints no table until you replace pass.
+# Enter a whole number. The program prints no table until you replace pass.
+# The repeat-program loop and input-validation loop are left for you to write.
 #
-# EXAMPLE / EXPECTED OUTPUT AFTER STEPS 1-2
+# EXAMPLE / EXPECTED OUTPUT AFTER TASKS 1-2
+# Welcome to my times-table program
 # Which times table? Enter a whole number: 5
 # 5 x 1 = 5
 # 5 x 2 = 10
@@ -37,6 +48,9 @@ times_table(number)
 # 5 x 8 = 40
 # 5 x 9 = 45
 # 5 x 10 = 50
+# Another table? (y/n): n
 #
-# EXPECTED BEHAVIOUR AFTER THE EXTENSION
-# "yes" lets you choose another table in the same run; "no" ends the program.
+# MORE CHECKS
+# Enter y at the repeat question: you should be asked for a new table number.
+# Enter n: the program should end.
+# After the extension, entering a word instead of a number should prompt a retry.
