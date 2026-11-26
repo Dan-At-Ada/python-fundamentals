@@ -1,53 +1,78 @@
-# Calculator starter: input, selection, and functions.
+# Calculator starter: complete the missing parts using the tasks at the bottom.
 
 
-def add(a, b):
-    pass  # Complete this function using the tasks below.
+def mainMenu():
+    print("A)dd numbers")
+    print("S)ubtract numbers")
+    choice = input("Choose your option: ").upper()
+    return choice
 
 
-def subtract(a, b):
-    pass  # Complete this function using the tasks below.
+def enterNumber():
+    number = int(input("Enter a number: "))
+    return number
 
 
-first_number = float(input("First number: "))
-second_number = float(input("Second number: "))
-operation = input("Choose + or -: ")
+def add(x, y):
+    pass  # Return the answer.
 
-if operation == "+":
-    print("Result:", add(first_number, second_number))
-elif operation == "-":
-    print("Result:", subtract(first_number, second_number))
-else:
-    print("That operation is not available yet. Choose + or -.")
+
+def subtract(x, y):
+    pass  # Return the answer.
+
+
+# Main program starts here.
+print("Welcome to my calculator")
+again = "y"
+while again == "y":
+    userChoice = mainMenu()
+
+    if userChoice == "A":
+        answer = add(enterNumber(), enterNumber())
+        print("The answer is:", answer)
+    elif userChoice == "S":
+        answer = subtract(enterNumber(), enterNumber())
+        print("The answer is:", answer)
+    else:
+        print("Sorry, that is not a valid menu choice.")
+
+    again = "n"  # Temporary: replace this with a repeat question.
 
 
 # TASK STEPS
-# 1. Replace pass in add with code that returns the sum of a and b.
-# 2. Replace pass in subtract with code that returns a minus b.
-# 3. Write your own multiply(a, b) and divide(a, b) functions above the inputs.
-#    Each function should return its answer.
-# 4. Change the operation prompt to "Choose +, -, * or /: ".
-#    Add elif choices for * and / that call your new functions.
-# 5. Run the program with the examples below and check the results.
-# 6. Extension: add a loop so the user can do another calculation.
-#    After each result, ask "Another calculation? (yes/no): ".
-#    If they enter yes, ask for two new numbers and an operation.
-#    If they enter no, end the program. Write this loop yourself.
+# 1. Replace pass in add and subtract with code that returns the answer.
+# 2. Write your own multiply(x, y) and divide(x, y) functions.
+#    Add M)ultiply and D)ivide to mainMenu, then add the matching elif choices
+#    in the main program to call the new functions and print their answers.
+# 3. Replace the temporary again = "n" INSIDE the loop with an input question:
+#    "Another calculation? (y/n): ". Store the response in again.
+#    y should repeat the menu; n should end the program.
+# 4. Test all four operations using the examples below.
+# 5. Extension: add a loop inside mainMenu to reject invalid choices and
+#    keep asking until the user chooses A, S, M or D.
+# 6. Extension: add try/except ValueError and a loop inside enterNumber.
+#    If the input is not a whole number, show a message and ask again.
 #
 # AS SUPPLIED
-# Choosing + or - prints "Result: None" because the functions contain pass.
-# This is expected until you complete the functions.
+# Enter whole numbers. A and S display "The answer is: None" until their
+# functions are completed. The temporary again value ends the program after
+# one attempt. The input-validation loops have not been written for you.
 #
-# EXAMPLE / EXPECTED OUTPUT AFTER STEPS 1-4
-# First number: 8
-# Second number: 2
-# Choose +, -, * or /: +
-# Result: 10.0
+# EXAMPLE / EXPECTED OUTPUT AFTER TASKS 1-3
+# Welcome to my calculator
+# A)dd numbers
+# S)ubtract numbers
+# M)ultiply numbers
+# D)ivide numbers
+# Choose your option: A
+# Enter a number: 8
+# Enter a number: 2
+# The answer is: 10
+# Another calculation? (y/n): n
 #
 # MORE CHECKS (use 8 and 2 each time)
-# Choose -  ->  Result: 6.0
-# Choose *  ->  Result: 16.0
-# Choose /  ->  Result: 4.0
-#
-# EXPECTED BEHAVIOUR AFTER THE EXTENSION
-# "yes" starts another calculation in the same run; "no" ends the program.
+# S -> The answer is: 6
+# M -> The answer is: 16
+# D -> The answer is: 4.0
+# Enter y at the repeat question: the menu should appear again.
+# After the extensions, an invalid menu choice or number should prompt a retry.
